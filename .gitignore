@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Environment variables & secrets (never commit real keys)
+.env
+.env.*
+!.env.example
+
+# Runtime generated pantry data & stickers
+data/
+public/pantry/
+
+# Local article drafts & assets
+ARTICLE*.md
+ARTICLE*.html
+public/article/
+
+# Logs & OS files
+*.log
+.DS_Store
+Thumbs.db

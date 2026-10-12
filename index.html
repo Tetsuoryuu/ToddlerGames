@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic Mirror Arcade ✨</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Hidden Webcam Video Element -->
+    <video id="webcam-video" playsinline muted></video>
+
+    <!-- 60 FPS AR Mirror Game Canvas -->
+    <canvas id="game-canvas"></canvas>
+
+    <!-- Kid-First Toybox HUD Overlay -->
+    <div id="hud">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <div class="brand-pill">
+          <span id="brand-icon" class="brand-icon">🧙‍♂️🍲</span>
+          <span id="brand-title" class="brand-title">Silly Chef</span>
+          <div class="mode-switcher" role="group" aria-label="Choose Game">
+            <button
+              id="mode-cauldron-btn"
+              class="mode-btn active"
+              title="Play Magic Cauldron Soup"
+            >
+              🍲 Soup
+            </button>
+            <button
+              id="mode-train-btn"
+              class="mode-btn"
+              title="Play Flying Train"
+            >
+              🚂 Train
+            </button>
+          </div>
+          <span id="api-status-badge" class="api-badge"></span>
+        </div>
+
+        <div id="prompt-banner" class="prompt-banner">
+          <div id="banner-title">👋 Hi Little Chef!</div>
+          <div id="banner-subtitle"></div>
+        </div>
+
+        <div class="top-controls">
+          <button
+            id="mic-btn"
+            class="action-btn mic-btn"
+            title="Press Spacebar or Tap to Speak"
+          >
+            <span class="btn-emoji">🎤</span>
+            <span id="mic-btn-label">Speak!</span>
+          </button>
+          <button
+            id="new-guest-btn"
+            class="action-btn secondary-toy-btn"
+            title="Summon a New Friend or Cloud Wave"
+          >
+            🦄 Friend
+          </button>
+        </div>
+      </div>
+
+      <!-- Left & Right Giant Sticker Shelves (No Text Labels!) -->
+      <div class="shelves-row">
+        <!-- Left Shelf: Saved Characters -->
+        <aside class="pantry-shelf" aria-label="Saved Friends">
+          <div id="left-shelf-header" class="shelf-header" title="Friends">
+            👑
+          </div>
+          <div id="character-shelf" class="shelf-items"></div>
+        </aside>
+
+        <!-- Right Shelf: Saved Ingredients Pantry / Train Ammo -->
+        <aside class="pantry-shelf" aria-label="Sticker Pantry">
+          <div id="right-shelf-header" class="shelf-header" title="Pantry">
+            🍓
+          </div>
+          <div id="ingredient-shelf" class="shelf-items"></div>
+        </aside>
+      </div>
+
+      <!-- Bottom Bar: Discreet Collapsible Parent Co-Pilot & Toy Buttons -->
+      <div class="bottom-bar">
+        <form id="parent-form" class="parent-box collapsed">
+          <button
+            type="button"
+            id="parent-toggle-btn"
+            class="parent-toggle-btn"
+            title="Parent Co-Pilot Keyboard"
+          >
+            ⌨️
+          </button>
+          <input
+            id="parent-input"
+            type="text"
+            placeholder="Type any character, food, or ammo..."
+            autocomplete="off"
+          />
+          <button type="submit" class="parent-submit-btn">✨</button>
+        </form>
+
+        <div class="quick-buttons">
+          <button
+            id="surprise-ingredient-btn"
+            class="action-btn surprise-toy-btn"
+            title="Surprise Magic Sticker!"
+          >
+            🎲
+          </button>
+          <button
+            id="reset-pot-btn"
+            class="action-btn reset-toy-btn"
+            title="Start Fresh"
+          >
+            🔄
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Welcome Overlay (Kid-Friendly Visual Game Picker) -->
+    <div id="welcome-modal">
+      <div class="welcome-card">
+        <div class="welcome-emoji">✨🪞✨</div>
+        <h1>Magic Mirror!</h1>
+        <p class="welcome-tagline">Wave your hands &amp; shout silly words!</p>
+        <div class="welcome-btn-row">
+          <button id="start-game-btn" class="start-big-btn">
+            <span class="big-btn-icon">🍲</span>
+            <span>Magic Soup</span>
+          </button>
+          <button id="start-train-btn" class="start-big-btn start-train-btn">
+            <span class="big-btn-icon">🚂</span>
+            <span>Flying Train</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

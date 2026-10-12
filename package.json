@@ -1,0 +1,31 @@
+{
+  "name": "silly-chef-magic-cauldron",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "description": "Silly Chef: The Magic Cauldron — An AR Mirror & Voice-Powered Toddler Game built with Gemini 3.8, Nano Banana 2.1, and MediaPipe Hands",
+  "scripts": {
+    "dev": "concurrently -n SERVER,CLIENT -c magenta,cyan \"tsx watch server/index.ts\" \"vite\"",
+    "dev:server": "tsx watch server/index.ts",
+    "dev:client": "vite",
+    "build": "tsc && vite build",
+    "start": "tsx server/index.ts"
+  },
+  "dependencies": {
+    "@google/genai": "^2.28.0",
+    "@mediapipe/tasks-vision": "^0.10.18",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  }
+}
